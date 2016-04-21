@@ -4,10 +4,10 @@ $con = mysql_connect('localhost', 'root', '');
 mysql_select_db('android_api', $con);
 
 $settings = array(
-    'oauth_access_token' => "2710727430-W1yuXnwerqFDEdCvyHcePZIMMLtdFcOtRhNfUBo",
-    'oauth_access_token_secret' => "PWijr9VQ4tLG45316Xcq93rfbAlKFAF9yud0GCcC4y7pa",
-    'consumer_key' => "Bc1X2cRhkT1dUvWueqX3FUFd4",
-    'consumer_secret' => "qEUjNUm171es7kLe4c9QhB55cbmbMDyXeejvYWcqPPBCVmhd24"
+    'oauth_access_token' => "****",
+    'oauth_access_token_secret' => "****",
+    'consumer_key' => "****",
+    'consumer_secret' => "****"
 );
 
 
