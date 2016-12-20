@@ -2,24 +2,15 @@
 
 class DB_Functions {
 
-<<<<<<< HEAD
     var $db;
 	public $con;
-=======
-    private $db;
-
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
     //put your code here
     // constructor
     function __construct() {
         require_once 'DB_Connect.php';
         // connecting to database
         $this->db = new DB_Connect();
-<<<<<<< HEAD
         $this->con = $this->db->connect();
-=======
-        $this->db->connect();
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
     }
 
     // destructor
@@ -36,7 +27,6 @@ class DB_Functions {
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
-<<<<<<< HEAD
         $result = mysqli_query($this->con,"INSERT INTO users(unique_id, name, email, encrypted_password, salt, created_at, phone, b_group, location) VALUES('$uuid', '$name', '$email', '$encrypted_password', '$salt', NOW(),'$phone','$bg_group','$location')");
         // check for successful store
         if ($result) {
@@ -45,16 +35,6 @@ class DB_Functions {
             $result = mysqli_query($this->con,"SELECT * FROM users WHERE uid = $uid");
             // return user details
             return mysqli_fetch_array($result);
-=======
-        $result = mysql_query("INSERT INTO users(unique_id, name, email, encrypted_password, salt, created_at, phone, b_group, location) VALUES('$uuid', '$name', '$email', '$encrypted_password', '$salt', NOW(),'$phone','$bg_group','$location')");
-        // check for successful store
-        if ($result) {
-            // get user details 
-            $uid = mysql_insert_id(); // last inserted id
-            $result = mysql_query("SELECT * FROM users WHERE uid = $uid");
-            // return user details
-            return mysql_fetch_array($result);
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
         } else {
             return false;
         }
@@ -64,19 +44,11 @@ class DB_Functions {
      * Get user by email and password
      */
     public function getUserByEmailAndPassword($email, $password) {
-<<<<<<< HEAD
         $result = mysqli_query($this->con,"SELECT * FROM users WHERE email = '$email'") or die(mysql_error());
         // check for result 
         $no_of_rows = mysqli_num_rows($result);
         if ($no_of_rows > 0) {
             $result = mysqli_fetch_array($result);
-=======
-        $result = mysql_query("SELECT * FROM users WHERE email = '$email'") or die(mysql_error());
-        // check for result 
-        $no_of_rows = mysql_num_rows($result);
-        if ($no_of_rows > 0) {
-            $result = mysql_fetch_array($result);
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
             $salt = $result['salt'];
             $encrypted_password = $result['encrypted_password'];
             $hash = $this->checkhashSSHA($salt, $password);
@@ -95,13 +67,8 @@ class DB_Functions {
      * Check user is existed or not
      */
     public function isUserExisted($email) {
-<<<<<<< HEAD
         $result = mysqli_query($this->con,"SELECT email from users WHERE email = '$email'");
         $no_of_rows = mysqli_num_rows($result);
-=======
-        $result = mysql_query("SELECT email from users WHERE email = '$email'");
-        $no_of_rows = mysql_num_rows($result);
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
         if ($no_of_rows > 0) {
             // user existed 
             return true;

@@ -1,12 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 $con = mysql_connect('localhost', 'root', '1234');
 mysql_select_db('RedTweet', $con);
-=======
-$con = mysql_connect('localhost', 'root', '');
-mysql_select_db('android_api', $con);
->>>>>>> edecbd4cc035e9bf9ab9a5441e8b5764ca2127d9
  
 mysql_query('SET CHARACTER SET utf8');
 $val1 = $_GET['b_group'];
